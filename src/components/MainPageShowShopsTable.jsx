@@ -1,4 +1,3 @@
-import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import axios from "axios";
 import ArrowForwardIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import AddShop from "./MainPageAddShop";
@@ -19,7 +18,6 @@ import {
   TableCell,
   Paper,
   Button,
-  FormControlLabel,
 } from "@mui/material";
 
 import { Link, Routes, Route } from "react-router-dom";
@@ -52,11 +50,12 @@ function ShopAddToHome(props) {
 
   return (
     <div>
+      {/* <Splash /> */}
       <Header />
       <Indicator indicator="SHOPS" />
 
       <Routes>
-        <Route path="/AddShop" element={<AddShop />} />
+        <Route path="/Addshop" element={<AddShop />} />
         <Route path="/showproducts" element={<Showproducts />} />
       </Routes>
 
@@ -66,7 +65,7 @@ function ShopAddToHome(props) {
         style={{ marginTop: "50px", marginBottom: "50px" }}
       >
         <Link
-          to="/AddShop"
+          to="/Addshop"
           style={{
             textDecoration: "none",
             color: "#E4DCCF",
@@ -113,7 +112,7 @@ function ShopAddToHome(props) {
                   Stores.map((item, index) => (
                     <TableRow>
                       <TableCell>{item.name}</TableCell>
-                      <TableCell>{item.categories.join(", ")}</TableCell>
+                      <TableCell>{item.categories.length}</TableCell>
                       <TableCell align="center">
                         <Link
                           to="/showproducts"

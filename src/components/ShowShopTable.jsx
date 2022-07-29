@@ -19,7 +19,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button, TableHead } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowCircleRightOutlined";
-
+import Tooltip from "@mui/material/Tooltip";
 function TablePaginationActions(props) {
   const theme = useTheme();
   const { count, page, rowsPerPage, onPageChange } = props;
@@ -128,8 +128,8 @@ export default function CustomPaginationActionsTable() {
             <TableCell style={{ color: "#FFFFFF" }}>
               <b>Shop Name</b>
             </TableCell>
-            <TableCell style={{ color: "#FFFFFF" }} align="center">
-              <b>Categories</b>
+            <TableCell style={{ color: "#FFFFFF" }}>
+              <b>Total Categories</b>
             </TableCell>
             <TableCell style={{ color: "#FFFFFF" }} align="center">
               <b>Explore</b>
@@ -145,7 +145,17 @@ export default function CustomPaginationActionsTable() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="center">{row.categories.join(", ")}</TableCell>
+              {/* <TableCell align="center">{row.categories.join(", ")}</TableCell> */}
+
+              <TableCell>
+                <p
+                  title={row.categories.join(", ")}
+                  style={{ cursor: "pointer" }}
+                >
+                  {row.categories.length}
+                </p>
+              </TableCell>
+
               <TableCell align="center">
                 <Link
                   to="/showproducts"
